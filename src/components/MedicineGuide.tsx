@@ -12,7 +12,7 @@ const MedicineGuide = () => {
 
   return (
     <div className="space-y-4">
-      <Card className="bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20 border-2 border-primary/20">
+      <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
         <CardHeader className="pb-3">
           <div className="flex items-center gap-2">
             <Pill className="w-5 h-5 text-primary" />
