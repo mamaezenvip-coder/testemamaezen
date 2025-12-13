@@ -52,14 +52,14 @@ const MedicineGuide = () => {
                     <p className="font-semibold text-primary">{isUSA ? "Dosage:" : "Dosagem:"}</p>
                     <p>{med.dosage}</p>
                   </div>
-                  <div className="bg-amber-50 dark:bg-amber-950/20 p-2 rounded-lg border border-amber-200 dark:border-amber-900">
-                    <p className="font-semibold text-amber-700 dark:text-amber-400">⚠️ {isUSA ? "Important:" : "Importante:"}</p>
-                    <p className="text-amber-900 dark:text-amber-300">{med.warning}</p>
+                  <div className="bg-accent/20 p-2 rounded-lg border border-accent/30">
+                    <p className="font-semibold text-accent-foreground">⚠️ {isUSA ? "Important:" : "Importante:"}</p>
+                    <p className="text-foreground/80">{med.warning}</p>
                   </div>
                   {med.risks && (
-                    <div className="bg-red-50 dark:bg-red-950/20 p-2 rounded-lg border border-red-200 dark:border-red-900">
-                      <p className="font-semibold text-red-700 dark:text-red-400">🚨 {isUSA ? "Risks if misused:" : "Riscos se usado errado:"}</p>
-                      <p className="text-red-900 dark:text-red-300">{med.risks}</p>
+                    <div className="bg-destructive/10 p-2 rounded-lg border border-destructive/30">
+                      <p className="font-semibold text-destructive">🚨 {isUSA ? "Risks if misused:" : "Riscos se usado errado:"}</p>
+                      <p className="text-foreground/80">{med.risks}</p>
                     </div>
                   )}
                 </AccordionContent>
@@ -89,7 +89,7 @@ const MedicineGuide = () => {
                     <Pill className="w-4 h-4 text-primary" />
                     <span className="font-semibold">{med.name}</span>
                     {med.safe ? (
-                      <Badge className="text-[10px] px-1.5 py-0 bg-green-500">✓ {isUSA ? "Safe" : "Seguro"}</Badge>
+                      <Badge className="text-[10px] px-1.5 py-0 bg-primary text-primary-foreground">✓ {isUSA ? "Safe" : "Seguro"}</Badge>
                     ) : (
                       <Badge variant="destructive" className="text-[10px] px-1.5 py-0">⚠️ {isUSA ? "Caution" : "Cuidado"}</Badge>
                     )}
@@ -104,18 +104,18 @@ const MedicineGuide = () => {
                     <p className="font-semibold text-primary">{isUSA ? "Dosage:" : "Dosagem:"}</p>
                     <p>{med.dosage}</p>
                   </div>
-                  <div className={`p-2 rounded-lg border ${med.safe ? 'bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-900' : 'bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-900'}`}>
-                    <p className={`font-semibold ${med.safe ? 'text-green-700 dark:text-green-400' : 'text-amber-700 dark:text-amber-400'}`}>
+                  <div className={`p-2 rounded-lg border ${med.safe ? 'bg-primary/10 border-primary/30' : 'bg-accent/20 border-accent/30'}`}>
+                    <p className={`font-semibold ${med.safe ? 'text-primary' : 'text-accent-foreground'}`}>
                       {med.safe ? '✓' : '⚠️'} {isUSA ? "Important:" : "Importante:"}
                     </p>
-                    <p className={med.safe ? 'text-green-900 dark:text-green-300' : 'text-amber-900 dark:text-amber-300'}>
+                    <p className="text-foreground/80">
                       {med.warning}
                     </p>
                   </div>
                   {med.risks && (
-                    <div className="bg-red-50 dark:bg-red-950/20 p-2 rounded-lg border border-red-200 dark:border-red-900">
-                      <p className="font-semibold text-red-700 dark:text-red-400">🚨 {isUSA ? "Risks if misused:" : "Riscos se usado errado:"}</p>
-                      <p className="text-red-900 dark:text-red-300">{med.risks}</p>
+                    <div className="bg-destructive/10 p-2 rounded-lg border border-destructive/30">
+                      <p className="font-semibold text-destructive">🚨 {isUSA ? "Risks if misused:" : "Riscos se usado errado:"}</p>
+                      <p className="text-foreground/80">{med.risks}</p>
                     </div>
                   )}
                 </AccordionContent>
@@ -149,14 +149,14 @@ const MedicineGuide = () => {
                     <p className="font-semibold text-primary">{isUSA ? "Home treatment:" : "Tratamento em casa:"}</p>
                     <p>{item.treatment}</p>
                   </div>
-                  <div className="bg-amber-50 dark:bg-amber-950/20 p-2 rounded-lg border border-amber-200 dark:border-amber-900">
-                    <p className="font-semibold text-amber-700 dark:text-amber-400">🏥 {isUSA ? "When to see a doctor:" : "Quando procurar médico:"}</p>
-                    <p className="text-amber-900 dark:text-amber-300">{item.when}</p>
+                  <div className="bg-accent/20 p-2 rounded-lg border border-accent/30">
+                    <p className="font-semibold text-accent-foreground">🏥 {isUSA ? "When to see a doctor:" : "Quando procurar médico:"}</p>
+                    <p className="text-foreground/80">{item.when}</p>
                   </div>
                   {item.risks && (
-                    <div className="bg-red-50 dark:bg-red-950/20 p-2 rounded-lg border border-red-200 dark:border-red-900">
-                      <p className="font-semibold text-red-700 dark:text-red-400">🚨 {isUSA ? "SERIOUS RISKS:" : "RISCOS GRAVES:"}</p>
-                      <p className="text-red-900 dark:text-red-300">{item.risks}</p>
+                    <div className="bg-destructive/10 p-2 rounded-lg border border-destructive/30">
+                      <p className="font-semibold text-destructive">🚨 {isUSA ? "SERIOUS RISKS:" : "RISCOS GRAVES:"}</p>
+                      <p className="text-foreground/80">{item.risks}</p>
                     </div>
                   )}
                 </AccordionContent>
