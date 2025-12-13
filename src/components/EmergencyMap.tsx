@@ -255,11 +255,11 @@ const EmergencyMap = () => {
     const badges = [];
     
     if (place.type === "hospital") {
-      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-red-500">Hospital</Badge>);
+      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-destructive text-destructive-foreground">Hospital</Badge>);
     } else if (place.type === "pronto-socorro") {
-      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-orange-500">{isUSA ? "ER" : "Pronto-Socorro"}</Badge>);
+      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-accent text-accent-foreground">{isUSA ? "ER" : "Pronto-Socorro"}</Badge>);
     } else {
-      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-blue-500">{isUSA ? "Clinic" : "Clínica"}</Badge>);
+      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-primary text-primary-foreground">{isUSA ? "Clinic" : "Clínica"}</Badge>);
     }
     
     if (place.isPublic !== undefined) {
@@ -295,7 +295,7 @@ const EmergencyMap = () => {
           <Button 
             onClick={getLocation} 
             disabled={loading}
-            className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="w-full bg-gradient-to-r from-destructive to-destructive/80 hover:from-destructive/90 hover:to-destructive/70 text-destructive-foreground shadow-lg hover:shadow-xl transition-all duration-300"
             size="lg"
           >
             {loading ? (
@@ -317,8 +317,8 @@ const EmergencyMap = () => {
           </Button>
           
           {userLocation && (
-            <div className="flex items-center justify-center gap-2 mt-2 text-green-600 dark:text-green-400">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <div className="flex items-center justify-center gap-2 mt-2 text-primary">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               <span className="text-xs font-medium">
                 {isUSA ? "GPS Active" : "GPS Ativo"}
               </span>
@@ -341,7 +341,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("911")} 
                     size="sm"
-                    className="bg-white text-red-600 hover:bg-red-50"
+                    className="bg-background text-destructive hover:bg-background/80"
                   >
                     <Phone className="w-4 h-4" />
                     911
@@ -355,7 +355,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("1-800-222-1222")} 
                     size="sm"
-                    className="bg-white text-red-600 hover:bg-red-50 text-[10px]"
+                    className="bg-background text-destructive hover:bg-background/80 text-[10px]"
                   >
                     <Phone className="w-3 h-3" />
                     Call
@@ -372,7 +372,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("192")} 
                     size="sm"
-                    className="bg-white text-red-600 hover:bg-red-50"
+                    className="bg-background text-destructive hover:bg-background/80"
                   >
                     <Phone className="w-4 h-4" />
                     192
@@ -386,7 +386,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("193")} 
                     size="sm"
-                    className="bg-white text-red-600 hover:bg-red-50"
+                    className="bg-background text-destructive hover:bg-background/80"
                   >
                     <Phone className="w-4 h-4" />
                     193
