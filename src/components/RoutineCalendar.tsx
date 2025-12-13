@@ -33,10 +33,10 @@ const RoutineCalendar = () => {
   };
 
   const categories = {
-    morning: { label: 'Manhã', color: 'from-amber-200 to-orange-200' },
-    afternoon: { label: 'Tarde', color: 'from-sky-200 to-blue-200' },
-    evening: { label: 'Noitinha', color: 'from-purple-200 to-pink-200' },
-    night: { label: 'Noite', color: 'from-indigo-300 to-purple-300' },
+    morning: { label: 'Manhã', color: 'from-primary/30 to-accent/30' },
+    afternoon: { label: 'Tarde', color: 'from-secondary/40 to-primary/30' },
+    evening: { label: 'Noitinha', color: 'from-accent/40 to-primary/30' },
+    night: { label: 'Noite', color: 'from-primary/40 to-secondary/40' },
   };
 
   const completedCount = routines.filter(r => r.completed).length;
@@ -84,11 +84,11 @@ const RoutineCalendar = () => {
                     <button
                       key={routine.id}
                       onClick={() => toggleComplete(routine.id)}
-                      className={cn(
+                    className={cn(
                         "w-full p-4 rounded-xl text-left transition-all duration-300 border-2",
                         routine.completed
                           ? "bg-primary/10 border-primary/30"
-                          : "bg-white/60 border-white/40 hover:bg-white/80"
+                          : "bg-card/60 dark:bg-card/40 border-border/40 hover:bg-card/80"
                       )}
                     >
                       <div className="flex items-center gap-4">
