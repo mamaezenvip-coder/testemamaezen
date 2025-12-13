@@ -255,11 +255,11 @@ const EmergencyMap = () => {
     const badges = [];
     
     if (place.type === "hospital") {
-      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-destructive text-destructive-foreground">Hospital</Badge>);
+      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-primary text-primary-foreground">Hospital</Badge>);
     } else if (place.type === "pronto-socorro") {
-      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-accent text-accent-foreground">{isUSA ? "ER" : "Pronto-Socorro"}</Badge>);
+      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-secondary text-secondary-foreground">{isUSA ? "ER" : "Pronto-Socorro"}</Badge>);
     } else {
-      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-primary text-primary-foreground">{isUSA ? "Clinic" : "Clínica"}</Badge>);
+      badges.push(<Badge key="type" className="text-[10px] px-1.5 py-0 bg-accent text-accent-foreground">{isUSA ? "Clinic" : "Clínica"}</Badge>);
     }
     
     if (place.isPublic !== undefined) {
@@ -275,11 +275,11 @@ const EmergencyMap = () => {
 
   return (
     <div className="space-y-4">
-      <Card className="bg-gradient-to-br from-destructive/10 via-primary/10 to-secondary/10 border-2 border-destructive/30">
+      <Card className="bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 border-2 border-primary/30">
         <CardHeader className="pb-3">
           <div className="flex items-center gap-2">
-            <Hospital className="w-5 h-5 text-destructive" />
-            <CardTitle className="text-lg text-destructive">
+            <Hospital className="w-5 h-5 text-primary" />
+            <CardTitle className="text-lg text-primary">
               {isUSA ? "All nearby health facilities" : "Todas as unidades de saúde próximas"}
             </CardTitle>
           </div>
@@ -295,7 +295,7 @@ const EmergencyMap = () => {
           <Button 
             onClick={getLocation} 
             disabled={loading}
-            className="w-full bg-gradient-to-r from-destructive to-destructive/80 hover:from-destructive/90 hover:to-destructive/70 text-destructive-foreground shadow-lg hover:shadow-xl transition-all duration-300"
+            className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
             size="lg"
           >
             {loading ? (
@@ -328,7 +328,7 @@ const EmergencyMap = () => {
       </Card>
 
       {/* Emergency Numbers */}
-      <Card className="bg-destructive text-destructive-foreground border-2 border-destructive">
+      <Card className="bg-gradient-to-r from-primary to-secondary text-primary-foreground border-2 border-primary">
         <CardContent className="p-4">
           <div className="space-y-2">
             {isUSA ? (
@@ -341,7 +341,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("911")} 
                     size="sm"
-                    className="bg-background text-destructive hover:bg-background/80"
+                    className="bg-background text-primary hover:bg-background/80"
                   >
                     <Phone className="w-4 h-4" />
                     911
@@ -355,7 +355,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("1-800-222-1222")} 
                     size="sm"
-                    className="bg-background text-destructive hover:bg-background/80 text-[10px]"
+                    className="bg-background text-primary hover:bg-background/80 text-[10px]"
                   >
                     <Phone className="w-3 h-3" />
                     Call
@@ -372,7 +372,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("192")} 
                     size="sm"
-                    className="bg-background text-destructive hover:bg-background/80"
+                    className="bg-background text-primary hover:bg-background/80"
                   >
                     <Phone className="w-4 h-4" />
                     192
@@ -386,7 +386,7 @@ const EmergencyMap = () => {
                   <Button 
                     onClick={() => callPhone("193")} 
                     size="sm"
-                    className="bg-background text-destructive hover:bg-background/80"
+                    className="bg-background text-primary hover:bg-background/80"
                   >
                     <Phone className="w-4 h-4" />
                     193
@@ -447,7 +447,7 @@ const EmergencyMap = () => {
         ))}
       </div>
 
-      <Card className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20">
+      <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20">
         <CardContent className="p-3">
           <p className="text-xs text-center leading-relaxed">
             <strong>💡 {isUSA ? "Tip" : "Dica"}:</strong> {isUSA 
