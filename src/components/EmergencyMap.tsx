@@ -275,11 +275,11 @@ const EmergencyMap = () => {
 
   return (
     <div className="space-y-4">
-      <Card className="bg-gradient-to-br from-red-50 via-orange-50 to-pink-50 dark:from-red-950/20 dark:via-orange-950/20 dark:to-pink-950/20 border-2 border-red-300 dark:border-red-800">
+      <Card className="bg-gradient-to-br from-destructive/10 via-primary/10 to-secondary/10 border-2 border-destructive/30">
         <CardHeader className="pb-3">
           <div className="flex items-center gap-2">
-            <Hospital className="w-5 h-5 text-red-600 dark:text-red-400" />
-            <CardTitle className="text-lg text-red-700 dark:text-red-400">
+            <Hospital className="w-5 h-5 text-destructive" />
+            <CardTitle className="text-lg text-destructive">
               {isUSA ? "All nearby health facilities" : "Todas as unidades de saúde próximas"}
             </CardTitle>
           </div>
@@ -328,7 +328,7 @@ const EmergencyMap = () => {
       </Card>
 
       {/* Emergency Numbers */}
-      <Card className="bg-red-500 dark:bg-red-900 text-white border-2 border-red-600">
+      <Card className="bg-destructive text-destructive-foreground border-2 border-destructive">
         <CardContent className="p-4">
           <div className="space-y-2">
             {isUSA ? (
@@ -401,8 +401,8 @@ const EmergencyMap = () => {
       {/* Lista de Hospitais e Clínicas */}
       <div className="space-y-2">
         {nearbyPlaces.length > 0 && (
-          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h3 className="text-sm font-bold text-blue-900 dark:text-blue-100">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-3 rounded-lg border border-primary/20">
+            <h3 className="text-sm font-bold text-foreground">
               📍 {nearbyPlaces.length} {isUSA ? "facilities found" : "unidades encontradas"} {locationCity && `- ${locationCity}`}
             </h3>
           </div>

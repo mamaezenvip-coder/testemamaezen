@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { backgroundAudioService } from '@/services/BackgroundAudioService';
 
 interface YouTubeState {
   isPlaying: boolean;
@@ -30,8 +31,22 @@ export const useYouTubeEmbed = () => {
         iframeRef.current.remove();
         iframeRef.current = null;
       }
+      backgroundAudioService.stopAudio();
     };
   }, []);
+
+  // Manter áudio em segundo plano
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden' && state.isPlaying) {
+        // Mantém o serviço de áudio em segundo plano ativo
+        backgroundAudioService.startAudio(state.currentVideoId || '');
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [state.isPlaying, state.currentVideoId]);
 
   const createIframe = useCallback((videoId: string, showVisible: boolean = true) => {
     // Usa container visível ou oculto baseado no parâmetro
@@ -69,7 +84,7 @@ export const useYouTubeEmbed = () => {
       iframe.style.cssText = 'width:1px;height:1px;position:absolute;opacity:0.01;pointer-events:none;';
     }
 
-    // Parâmetros do YouTube
+    // Parâmetros do YouTube otimizados para reprodução contínua
     const params = new URLSearchParams({
       autoplay: isIOS ? '0' : '1',
       mute: '0',
@@ -93,6 +108,9 @@ export const useYouTubeEmbed = () => {
         isPlaying: !isIOS,
         currentVideoId: videoId,
       }));
+      
+      // Atualiza o serviço de áudio em segundo plano
+      backgroundAudioService.startAudio(videoId);
     };
 
     container.appendChild(iframe);
@@ -112,6 +130,9 @@ export const useYouTubeEmbed = () => {
     if (containerRef.current) containerRef.current.innerHTML = '';
     if (hiddenContainerRef.current) hiddenContainerRef.current.innerHTML = '';
     
+    // Para o serviço de áudio em segundo plano
+    backgroundAudioService.stopAudio();
+    
     setState({
       isPlaying: false,
       currentVideoId: null,
@@ -122,6 +143,7 @@ export const useYouTubeEmbed = () => {
 
   const setVolume = useCallback((volume: number) => {
     setState(prev => ({ ...prev, volume }));
+    backgroundAudioService.setVolume(volume);
   }, []);
 
   return {

@@ -11,15 +11,25 @@ const config: CapacitorConfig = {
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
-      backgroundColor: '#ffffff',
+      backgroundColor: '#1e1b4b',
       showSpinner: false
+    },
+    BackgroundRunner: {
+      label: 'app.mamae.zen.background',
+      src: 'background.js',
+      event: 'checkAudio',
+      repeat: true,
+      interval: 1,
+      autoStart: true
     }
   },
   android: {
-    allowMixedContent: true
+    allowMixedContent: true,
+    backgroundColor: '#1e1b4b'
   },
   ios: {
-    contentInset: 'automatic'
+    contentInset: 'automatic',
+    backgroundColor: '#1e1b4b'
   }
 };
 

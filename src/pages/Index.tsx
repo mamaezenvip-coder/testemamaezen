@@ -298,23 +298,23 @@ const Index = () => {
           </Tabs>
 
           {/* Footer */}
-          <div className="text-center space-y-2 pt-6 pb-4 border-t border-pink-500/20">
-            <p className="text-xs text-pink-300/60">
+          <div className="text-center space-y-2 pt-6 pb-4 border-t border-primary/20">
+            <p className="text-xs text-muted-foreground">
               {isUSA ? '💝 Made with love for moms' : '💝 Feito com amor para mamães'}
             </p>
-            <p className="text-xs font-semibold text-pink-200">
+            <p className="text-xs font-semibold text-foreground/80">
               © {new Date().getFullYear()} {isUSA ? 'Mom Zen Premium' : 'Mamãe Zen Premium'}
             </p>
-            <p className="text-[10px] text-pink-300/50">
+            <p className="text-[10px] text-muted-foreground/70">
               {isUSA ? 'All rights reserved to' : 'Todos os direitos reservados a'}{' '}
-              <span className="text-pink-400 font-semibold">Hemerson Deckson</span>
+              <span className="text-primary font-semibold">Hemerson Deckson</span>
             </p>
-            <p className="text-[10px] text-pink-300/50">
+            <p className="text-[10px] text-muted-foreground/70">
               {isUSA ? 'Developed with 💝 by' : 'Desenvolvido com 💝 por'}{' '}
-              <span className="text-pink-400 font-semibold">Hemerson Deckson</span>
+              <span className="text-primary font-semibold">Hemerson Deckson</span>
             </p>
             <Link to="/privacy">
-              <Button variant="link" size="sm" className="text-[10px] h-auto p-0 text-pink-400 hover:text-pink-300">
+              <Button variant="link" size="sm" className="text-[10px] h-auto p-0 text-primary hover:text-primary/80">
                 {isUSA ? 'Privacy Policy' : 'Política de Privacidade'}
               </Button>
             </Link>

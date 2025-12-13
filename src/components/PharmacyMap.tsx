@@ -176,10 +176,10 @@ const PharmacyMap = () => {
   return (
     <div className="space-y-4">
       {!isActivated ? (
-        <Card className="border-0 shadow-[var(--shadow-elegant)] bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20">
+        <Card className="border-0 shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10">
           <div className="p-8 text-center space-y-6">
             <div className="flex justify-center">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
                 <MapPin className="w-10 h-10 text-white" />
               </div>
             </div>
@@ -198,7 +198,7 @@ const PharmacyMap = () => {
             <Button 
               onClick={getCurrentLocation}
               size="lg"
-              className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-6 shadow-lg"
+              className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold py-6 shadow-lg"
             >
               <MapPin className="w-5 h-5 mr-2" />
               {isUSA ? 'Activate Location' : 'Ativar Localização'}
@@ -212,18 +212,18 @@ const PharmacyMap = () => {
           </div>
         </Card>
       ) : (
-        <Card className="border-0 shadow-[var(--shadow-soft)] bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20">
+        <Card className="border-0 shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10">
           <div className="p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-green-700 dark:text-green-300">
+              <div className="flex items-center gap-2 text-primary">
                 <MapPin className="w-5 h-5" />
                 <h3 className="font-semibold text-lg">
                   {isUSA ? 'Nearby Pharmacies' : 'Farmácias Próximas'}
                 </h3>
               </div>
               {userLocation && (
-                <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <div className="flex items-center gap-2 text-primary">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                   <span className="text-xs font-medium">
                     {isUSA ? 'Live Location' : 'Localização Ativa'}
                   </span>
@@ -272,7 +272,7 @@ const PharmacyMap = () => {
           {pharmacies.map((pharmacy) => (
             <Card 
               key={pharmacy.id}
-              className="p-4 hover:shadow-lg transition-all duration-200 border-l-4 border-l-green-500"
+              className="p-4 hover:shadow-lg transition-all duration-200 border-l-4 border-l-primary"
             >
               <div className="space-y-2">
                 <div className="flex items-start justify-between gap-2">
