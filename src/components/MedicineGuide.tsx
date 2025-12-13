@@ -12,13 +12,13 @@ const MedicineGuide = () => {
 
   return (
     <div className="space-y-4">
-      <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
+      <Card className="bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/30">
         <CardHeader className="pb-3">
           <div className="flex items-center gap-2">
             <Pill className="w-5 h-5 text-primary" />
-            <CardTitle className="text-lg">{isUSA ? 'Medicine Guide' : 'Guia de Medicamentos'}</CardTitle>
+            <CardTitle className="text-lg text-primary">{isUSA ? 'Medicine Guide' : 'Guia de Medicamentos'}</CardTitle>
           </div>
-          <CardDescription className="text-xs">
+          <CardDescription className="text-sm font-medium bg-destructive/10 text-destructive dark:text-destructive-foreground p-2 rounded-lg border border-destructive/20 mt-2">
             ⚠️ {isUSA ? "WARNING: Always consult a pediatrician before giving any medication to your baby" : "ATENÇÃO: Sempre consulte um pediatra antes de administrar qualquer medicamento ao seu bebê"}
           </CardDescription>
         </CardHeader>
