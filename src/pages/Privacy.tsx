@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="w-full max-w-2xl mx-auto space-y-6 py-4">
         <Link to="/">
           <Button variant="ghost" size="sm">
@@ -14,7 +14,7 @@ const Privacy = () => {
           </Button>
         </Link>
 
-        <Card className="bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20 border-2 border-primary/20">
+        <Card className="bg-card border-2 border-primary/20">
           <CardHeader>
             <div className="flex items-center gap-3">
               <Shield className="w-8 h-8 text-primary" />
