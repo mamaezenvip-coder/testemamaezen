@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { BookOpen, ChevronRight, Heart } from 'lucide-react';
 import { useState } from 'react';
 import ChapterDialog from './ChapterDialog';
+import EbookGallery from './EbookGallery';
 
 const chapters = [
   { id: 1, title: 'O Começo da Jornada', subtitle: 'Entendendo o Seu Corpo Pós-Parto', emoji: '🌸' },
@@ -46,9 +47,15 @@ const GuideLibrary = () => {
           <h2 className="text-2xl font-bold text-white">Guia Completo</h2>
         </div>
 
-        <p className="text-purple-200 mb-6 leading-relaxed">
-          Emagrecimento Pós-Parto Saudável: seu guia completo para emagrecer após o parto de forma saudável e sustentável.
-        </p>
+        {/* E-book Gallery */}
+        <EbookGallery />
+
+        <div className="border-t border-primary/20 my-6 pt-6">
+          <h3 className="text-lg font-bold text-foreground mb-2">📖 Guia Completo</h3>
+          <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+            Emagrecimento Pós-Parto Saudável: seu guia completo para emagrecer após o parto de forma saudável e sustentável.
+          </p>
+        </div>
 
         <div className="grid gap-3">
           {chapters.map((chapter) => (
