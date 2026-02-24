@@ -14,13 +14,71 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      key_activations: {
+        Row: {
+          activated_at: string
+          device_id: string | null
+          expires_at: string
+          id: string
+          license_key_id: string
+          user_id: string
+        }
+        Insert: {
+          activated_at?: string
+          device_id?: string | null
+          expires_at: string
+          id?: string
+          license_key_id: string
+          user_id: string
+        }
+        Update: {
+          activated_at?: string
+          device_id?: string | null
+          expires_at?: string
+          id?: string
+          license_key_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "key_activations_license_key_id_fkey"
+            columns: ["license_key_id"]
+            isOneToOne: false
+            referencedRelation: "license_keys"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      license_keys: {
+        Row: {
+          created_at: string
+          id: string
+          is_used: boolean
+          key: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_used?: boolean
+          key: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_used?: boolean
+          key?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      activate_license_key: {
+        Args: { p_device_id?: string; p_key: string }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never
