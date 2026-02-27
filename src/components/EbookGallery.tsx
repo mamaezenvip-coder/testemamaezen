@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { BookOpen, Download, Eye, X } from 'lucide-react';
+import { BookOpen, Download, Eye } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useCountry } from '@/contexts/CountryContext';
 
@@ -108,33 +108,37 @@ const EbookGallery = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-4">
         {ebooks.map((ebook) => (
-          <Card
+          <div
             key={ebook.id}
-            className="overflow-hidden border-primary/20 bg-card/80 backdrop-blur-sm hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+            className="group cursor-pointer"
             onClick={() => setSelectedEbook(ebook)}
           >
-            <div className="aspect-[2/3] overflow-hidden relative">
+            <div className="relative aspect-[2/3] rounded-xl overflow-hidden shadow-lg ring-1 ring-border/50 group-hover:ring-primary/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/10">
               <img
                 src={ebook.cover}
-                alt={ebook.title}
+                alt={isUSA ? ebook.titleEN : ebook.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                <Eye className="w-5 h-5 text-white" />
+              {/* Title overlay at bottom */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 pt-8">
+                <span className="text-[9px] font-bold uppercase tracking-widest text-primary-foreground/70">
+                  {isUSA ? ebook.categoryEN : ebook.category}
+                </span>
+                <h4 className="text-xs font-bold text-white leading-tight line-clamp-2 mt-0.5">
+                  {isUSA ? ebook.titleEN : ebook.title}
+                </h4>
+              </div>
+              {/* Hover eye icon */}
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <Eye className="w-5 h-5 text-white" />
+                </div>
               </div>
             </div>
-            <div className="p-3 space-y-1">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">
-                {isUSA ? ebook.categoryEN : ebook.category}
-              </span>
-              <h4 className="text-xs font-bold text-foreground leading-tight line-clamp-2">
-                {isUSA ? ebook.titleEN : ebook.title}
-              </h4>
-            </div>
-          </Card>
+          </div>
         ))}
       </div>
 
@@ -148,14 +152,14 @@ const EbookGallery = () => {
                 </DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
-                <div className="aspect-[2/3] max-h-64 mx-auto overflow-hidden rounded-lg">
+                <div className="aspect-[2/3] max-h-72 mx-auto overflow-hidden rounded-xl shadow-lg">
                   <img
                     src={selectedEbook.cover}
-                    alt={selectedEbook.title}
+                    alt={isUSA ? selectedEbook.titleEN : selectedEbook.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full">
+                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
                   {isUSA ? selectedEbook.categoryEN : selectedEbook.category}
                 </span>
                 <p className="text-sm text-muted-foreground leading-relaxed">
