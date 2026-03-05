@@ -131,6 +131,9 @@ const MusicPlayer = () => {
     found: isUSA ? 'Found' : 'Encontradas',
     musics: isUSA ? 'songs' : 'músicas',
     tapToPlay: isUSA ? 'Tap ▶ on video to start' : 'Toque ▶ no vídeo para iniciar',
+    downloadAudio: isUSA ? 'Download MP3' : 'Baixar MP3',
+    downloadVideo: isUSA ? 'Download Video' : 'Baixar Vídeo',
+    downloading: isUSA ? 'Opening download...' : 'Abrindo download...',
   };
 
   const handleSearch = async () => {
