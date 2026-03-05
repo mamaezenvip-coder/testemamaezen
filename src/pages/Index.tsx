@@ -273,28 +273,7 @@ const Index = () => {
               <TabsContent value="pharmacy" className="mt-0 animate-fade-in"><PharmacyMap /></TabsContent>
               <TabsContent value="pregnancy" className="mt-0 animate-fade-in">{wrapWithLock('pregnancy', <PregnancyTracker />)}</TabsContent>
               <TabsContent value="shop" className="mt-0 animate-fade-in">
-                <Card className="p-6 bg-card border-border">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-2 text-primary">
-                      <ShoppingBag className="w-6 h-6" />
-                      <h3 className="font-semibold text-xl">{isUSA ? 'Mom Shop' : 'Lojinha da Mamãe'}</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {isUSA ? 'Discover amazing products selected especially for you and your baby!' : 'Descubra produtos incríveis selecionados especialmente para você e seu bebê!'}
-                    </p>
-                    <Button
-                      onClick={() => window.open('https://collshp.com/mamaezenshopping', '_blank')}
-                      className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold py-6 shadow-lg"
-                      size="lg"
-                    >
-                      <ShoppingBag className="w-5 h-5 mr-2" />
-                      {isUSA ? 'Visit Shop' : 'Visitar Lojinha'}
-                    </Button>
-                    <p className="text-xs text-center text-muted-foreground">
-                      {isUSA ? '✨ Special products for moms and babies' : '✨ Produtos especiais para mamães e bebês'}
-                    </p>
-                  </div>
-                </Card>
+                <ProductShowcase />
               </TabsContent>
             </div>
 
