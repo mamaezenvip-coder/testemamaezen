@@ -25,7 +25,7 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: 'Macacão Bebê com Vestido Manuela',
+    name: 'Macacão bebê com vestido/usa separado Manuela',
     nameEn: 'Baby Romper with Dress Manuela',
     price: 'R$ 78,90',
     originalPrice: 'R$ 98,63',
