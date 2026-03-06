@@ -68,8 +68,8 @@ const products: Product[] = [
   },
   {
     id: 4,
-    name: 'Body Temático Bolofofo Mesversário Bebê',
-    nameEn: 'Themed Baby Body Monthly Birthday',
+    name: 'Body Temático Bolofofo Mesversário Bebê Menina/Menino Polvo/Gatinha',
+    nameEn: 'Themed Baby Body Monthly Birthday Girl/Boy',
     price: 'R$ 24,90',
     sold: '824 Vendidos',
     soldEn: '824 Sold',
