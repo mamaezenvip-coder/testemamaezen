@@ -205,21 +205,31 @@ const MusicPlayer = () => {
 
   const handleDownload = async (format: 'audio' | 'video') => {
     if (!currentTrack) return;
-    toast.info(texts.downloading);
+    
+    const formatLabel = format === 'audio' ? 'MP3' : 'MP4';
+    toast.info(`${texts.downloading} ${formatLabel}...`);
+    
     try {
       const { data, error } = await supabase.functions.invoke('youtube-download', {
         body: { videoId: currentTrack.id, format },
       });
-      if (error) throw error;
-      if (data?.url) {
+
+      if (error || !data?.success) throw new Error('Download failed');
+
+      if (data.url) {
         window.open(data.url, '_blank', 'noopener,noreferrer');
+        toast.success(
+          isUSA 
+            ? `Opening ${formatLabel} download for "${currentTrack.title}"` 
+            : `Abrindo download ${formatLabel} de "${currentTrack.title}"`
+        );
       }
     } catch (err) {
       console.error('Download error:', err);
-      // Fallback
+      // Fallback direto
       const fallbackUrl = format === 'audio'
-        ? `https://www.y2mate.com/youtube-mp3/${currentTrack.id}`
-        : `https://www.y2mate.com/youtube/${currentTrack.id}`;
+        ? `https://cnvmp3.com/download.php?url=${encodeURIComponent(`https://www.youtube.com/watch?v=${currentTrack.id}`)}`
+        : `https://ssyoutube.com/watch?v=${currentTrack.id}`;
       window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
     }
   };

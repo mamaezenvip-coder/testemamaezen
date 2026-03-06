@@ -18,61 +18,31 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Use cobalt.tools API for YouTube downloads
-    const cobaltResponse = await fetch('https://api.cobalt.tools/api/json', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        url: `https://www.youtube.com/watch?v=${videoId}`,
-        vCodec: 'h264',
-        vQuality: '720',
-        aFormat: 'mp3',
-        isAudioOnly: format === 'audio',
-        filenamePattern: 'basic',
-      }),
-    });
+    const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-    const data = await cobaltResponse.json();
+    let downloadUrl: string;
 
-    if (data.status === 'error') {
-      // Fallback: provide direct YouTube link
-      return new Response(
-        JSON.stringify({
-          success: true,
-          fallback: true,
-          url: format === 'audio'
-            ? `https://www.y2mate.com/youtube-mp3/${videoId}`
-            : `https://www.y2mate.com/youtube/${videoId}`,
-          message: 'Redirect to download service',
-        }),
-        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+    if (format === 'audio') {
+      // MP3 download - best quality
+      downloadUrl = `https://cnvmp3.com/download.php?url=${encodeURIComponent(youtubeUrl)}`;
+    } else {
+      // MP4 video download - best quality
+      downloadUrl = `https://ssyoutube.com/watch?v=${videoId}`;
     }
 
     return new Response(
       JSON.stringify({
         success: true,
-        url: data.url || data.audio,
-        filename: data.filename,
+        url: downloadUrl,
+        format: format === 'audio' ? 'mp3' : 'mp4',
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   } catch (error) {
     console.error('Download error:', error);
-    // Fallback on any error
-    const { videoId, format } = await req.clone().json().catch(() => ({ videoId: '', format: 'audio' }));
     return new Response(
-      JSON.stringify({
-        success: true,
-        fallback: true,
-        url: format === 'audio'
-          ? `https://www.y2mate.com/youtube-mp3/${videoId}`
-          : `https://www.y2mate.com/youtube/${videoId}`,
-      }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      JSON.stringify({ success: false, error: 'Failed to process download request' }),
+      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
 });
