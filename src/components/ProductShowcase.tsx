@@ -94,7 +94,7 @@ const products: Product[] = [
   },
   {
     id: 6,
-    name: 'Macacão Manga Longa Bebê Menina com Lacinhos Manu',
+    name: 'Macacão Manga Longa Bebê Menina com Lacinhos em Malha Manu',
     nameEn: 'Long Sleeve Baby Girl Romper with Bows Manu',
     price: 'R$ 54,00',
     originalPrice: 'R$ 67,50',
