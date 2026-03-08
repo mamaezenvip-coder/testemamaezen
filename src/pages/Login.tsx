@@ -5,9 +5,10 @@ import { useCountry } from '@/contexts/CountryContext';
 import { lovable } from '@/integrations/lovable/index';
 import { Button } from '@/components/ui/button';
 import { 
-  Sparkles, Baby, Moon, Music, Heart, BookOpen, Calendar, Pill, 
-  ShoppingBag, Shield, Star, ChevronDown
+  Sparkles, Moon, Music, Heart, BookOpen, Calendar, Pill, 
+  ShoppingBag, Shield, Star, ChevronDown, Baby
 } from 'lucide-react';
+import mamaeZenLogo from '@/assets/mamae-zen-logo.png';
 import { toast } from 'sonner';
 import CountrySelector from '@/components/CountrySelector';
 
