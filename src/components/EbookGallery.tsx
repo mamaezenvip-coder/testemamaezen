@@ -5,11 +5,7 @@ import { BookOpen, Download, Eye } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useCountry } from '@/contexts/CountryContext';
 
-import cover1 from '@/assets/ebook-cover-1.jpg';
-import cover2 from '@/assets/ebook-cover-2.jpg';
-import cover3 from '@/assets/ebook-cover-3.jpg';
-import cover4 from '@/assets/ebook-cover-4.jpg';
-import cover5 from '@/assets/ebook-cover-5.jpg';
+import defaultCover from '@/assets/ebook-default-cover.png';
 
 interface Ebook {
   id: number;
@@ -30,7 +26,7 @@ const ebooks: Ebook[] = [
     titleEN: "Baby's First Steps",
     description: 'Guia completo para acompanhar os primeiros marcos do desenvolvimento do seu bebê.',
     descriptionEN: 'Complete guide to follow your baby\'s first developmental milestones.',
-    cover: cover1,
+    cover: defaultCover,
     file: '/ebooks/Primeiros-Passos-do-Bebe.pdf',
     category: 'Bebê',
     categoryEN: 'Baby',
@@ -41,7 +37,7 @@ const ebooks: Ebook[] = [
     titleEN: 'I Hate Being a Mom',
     description: 'Um olhar honesto sobre os desafios da maternidade que ninguém conta.',
     descriptionEN: 'An honest look at the challenges of motherhood nobody talks about.',
-    cover: cover2,
+    cover: defaultCover,
     file: '/ebooks/Odeio_ser_mae.pdf',
     category: 'Maternidade',
     categoryEN: 'Motherhood',
@@ -52,7 +48,7 @@ const ebooks: Ebook[] = [
     titleEN: 'The Ash Diadem',
     description: 'Uma história envolvente de fantasia e superação para momentos de relaxamento.',
     descriptionEN: 'An engaging fantasy story of overcoming for relaxation moments.',
-    cover: cover3,
+    cover: defaultCover,
     file: '/ebooks/O-Diadema-de-Cinzas.pdf',
     category: 'Literatura',
     categoryEN: 'Literature',
@@ -63,7 +59,7 @@ const ebooks: Ebook[] = [
     titleEN: 'The Awakening of the Confident Mother',
     description: 'Desperte a mãe confiante que existe em você com técnicas práticas.',
     descriptionEN: 'Awaken the confident mother within you with practical techniques.',
-    cover: cover4,
+    cover: defaultCover,
     file: '/ebooks/O-Despertar-da-Mae-Confiante.pdf',
     category: 'Autoajuda',
     categoryEN: 'Self-help',
@@ -74,7 +70,7 @@ const ebooks: Ebook[] = [
     titleEN: 'The 7 Advanced Kabutizukito Techniques',
     description: 'Técnicas avançadas para equilíbrio emocional e bem-estar na maternidade.',
     descriptionEN: 'Advanced techniques for emotional balance and well-being in motherhood.',
-    cover: cover5,
+    cover: defaultCover,
     file: '/ebooks/AS-7-TECNICAS-AVANCADAS-KABUTIZUKITO.pdf',
     category: 'Bem-estar',
     categoryEN: 'Wellness',
