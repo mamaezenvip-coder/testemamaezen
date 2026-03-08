@@ -97,9 +97,9 @@ All colors MUST be HSL.
     --sidebar-foreground: 300 20% 98%;
     --sidebar-primary: 330 85% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 280 50% 15%;
+    --sidebar-accent: 280 50% 22%;
     --sidebar-accent-foreground: 300 20% 98%;
-    --sidebar-border: 270 20% 20%;
+    --sidebar-border: 270 20% 26%;
     --sidebar-ring: 330 85% 60%;
   }
 }
