@@ -218,7 +218,7 @@ export const translations = {
   musicPlayer: {
     br: {
       title: "Músicas para Dormir",
-      premium: "✨ mamaezen Premium: Áudios em alta qualidade, reprodução contínua sem interrupções. Perfeito para criar um ambiente tranquilo."
+      premium: "✨ Mamãe Zen Premium: Áudios em alta qualidade, reprodução contínua sem interrupções. Perfeito para criar um ambiente tranquilo."
     },
     usa: {
       title: "Sleep Music",
