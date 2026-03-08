@@ -37,7 +37,7 @@ const ebooks: Ebook[] = [
     titleEN: 'I Hate Being a Mom',
     description: 'Um olhar honesto sobre os desafios da maternidade que ninguém conta.',
     descriptionEN: 'An honest look at the challenges of motherhood nobody talks about.',
-    cover: cover2,
+    cover: defaultCover,
     file: '/ebooks/Odeio_ser_mae.pdf',
     category: 'Maternidade',
     categoryEN: 'Motherhood',
