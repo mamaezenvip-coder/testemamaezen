@@ -123,16 +123,27 @@ const Login = () => {
             {features.map((feat, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center gap-1.5 rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/30 transition-all duration-300 group overflow-hidden"
+                className="flex flex-col items-center gap-1.5 rounded-2xl bg-card/50 backdrop-blur-sm border border-primary/20 transition-all duration-500 group overflow-hidden relative hover:scale-[1.03]"
+                style={{
+                  boxShadow: '0 0 12px hsl(330 85% 60% / 0.25), 0 0 30px hsl(280 75% 55% / 0.15), inset 0 1px 0 hsl(330 85% 60% / 0.1)',
+                }}
               >
-                <div className="w-full aspect-[9/16] overflow-hidden rounded-t-2xl">
+                {/* Neon glow border effect */}
+                <div className="absolute inset-0 rounded-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{
+                  background: 'linear-gradient(135deg, hsl(330 85% 60% / 0.15), hsl(280 75% 55% / 0.1), hsl(330 85% 60% / 0.15))',
+                }} />
+                <div className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{
+                  background: 'linear-gradient(135deg, hsl(330 85% 60% / 0.4), hsl(280 75% 55% / 0.3), hsl(330 85% 60% / 0.4))',
+                  filter: 'blur(6px)',
+                }} />
+                <div className="w-full aspect-[9/16] overflow-hidden rounded-t-2xl relative z-[1]">
                   <img 
                     src={feat.image} 
                     alt={isUSA ? feat.labelEn : feat.labelPt}
                     className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <span className="text-[10px] font-medium text-muted-foreground text-center leading-tight pb-2 px-1">
+                <span className="text-[10px] font-semibold text-primary/80 group-hover:text-primary text-center leading-tight pb-2 px-1 relative z-[1] transition-colors duration-300">
                   {isUSA ? feat.labelEn : feat.labelPt}
                 </span>
               </div>
