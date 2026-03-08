@@ -49,9 +49,9 @@ All colors MUST be HSL.
     --sidebar-ring: 330 85% 60%;
     
     /* Gradientes de fundo premium - roxo/rosa/índigo */
-    --bg-gradient-start: 270 80% 12%;
-    --bg-gradient-middle: 300 70% 18%;
-    --bg-gradient-end: 330 70% 22%;
+    --bg-gradient-start: 270 80% 18%;
+    --bg-gradient-middle: 300 70% 24%;
+    --bg-gradient-end: 330 70% 28%;
   }
 
   /* Tema Rosa - mais roxo/rosa profundo premium */
