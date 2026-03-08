@@ -95,7 +95,7 @@ const EbookGallery = () => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg" style={{ boxShadow: '0 0 16px hsl(330 85% 60% / 0.4)' }}>
           <BookOpen className="w-5 h-5 text-primary-foreground" />
         </div>
         <div>
@@ -108,33 +108,44 @@ const EbookGallery = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      {/* Horizontal scroll carousel */}
+      <div className="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {ebooks.map((ebook) => (
           <div
             key={ebook.id}
-            className="group cursor-pointer"
+            className="group cursor-pointer flex-shrink-0 w-36 snap-start"
             onClick={() => setSelectedEbook(ebook)}
           >
-            <div className="relative aspect-[2/3] rounded-xl overflow-hidden shadow-lg ring-1 ring-border/50 group-hover:ring-primary/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/10">
+            <div
+              className="relative aspect-[2/3] rounded-2xl overflow-hidden border border-primary/20 transition-all duration-500 group-hover:scale-[1.03]"
+              style={{
+                boxShadow: '0 0 15px hsl(330 85% 60% / 0.2), 0 0 30px hsl(280 75% 55% / 0.1), 0 8px 32px hsl(0 0% 0% / 0.4)',
+              }}
+            >
+              {/* Neon glow on hover */}
+              <div className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" style={{
+                background: 'linear-gradient(135deg, hsl(330 85% 60% / 0.5), hsl(280 75% 55% / 0.3), hsl(330 85% 60% / 0.5))',
+                filter: 'blur(8px)',
+              }} />
               <img
                 src={ebook.cover}
                 alt={isUSA ? ebook.titleEN : ebook.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 relative z-[1]"
                 loading="lazy"
               />
-              {/* Title overlay at bottom */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 pt-8">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-primary-foreground/70">
+              {/* Bottom gradient overlay */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-3 pt-10 z-[2]">
+                <span className="text-[8px] font-bold uppercase tracking-[0.15em] text-primary/90">
                   {isUSA ? ebook.categoryEN : ebook.category}
                 </span>
-                <h4 className="text-xs font-bold text-white leading-tight line-clamp-2 mt-0.5">
+                <h4 className="text-[11px] font-bold text-foreground leading-tight line-clamp-2 mt-0.5">
                   {isUSA ? ebook.titleEN : ebook.title}
                 </h4>
               </div>
-              {/* Hover eye icon */}
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                  <Eye className="w-5 h-5 text-white" />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-[3]">
+                <div className="w-10 h-10 rounded-full bg-primary/30 backdrop-blur-md flex items-center justify-center border border-primary/40" style={{ boxShadow: '0 0 20px hsl(330 85% 60% / 0.4)' }}>
+                  <Eye className="w-5 h-5 text-primary-foreground" />
                 </div>
               </div>
             </div>
@@ -143,7 +154,7 @@ const EbookGallery = () => {
       </div>
 
       <Dialog open={!!selectedEbook} onOpenChange={() => setSelectedEbook(null)}>
-        <DialogContent className="sm:max-w-md bg-card border-border max-h-[90vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-md bg-card border-primary/20 max-h-[90vh] overflow-y-auto" style={{ boxShadow: '0 0 40px hsl(330 85% 60% / 0.15), 0 0 80px hsl(280 75% 55% / 0.1)' }}>
           {selectedEbook && (
             <>
               <DialogHeader>
@@ -152,14 +163,14 @@ const EbookGallery = () => {
                 </DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
-                <div className="aspect-[2/3] max-h-72 mx-auto overflow-hidden rounded-xl shadow-lg">
+                <div className="aspect-[2/3] max-h-72 mx-auto overflow-hidden rounded-2xl border border-primary/20" style={{ boxShadow: '0 0 20px hsl(330 85% 60% / 0.2)' }}>
                   <img
                     src={selectedEbook.cover}
                     alt={isUSA ? selectedEbook.titleEN : selectedEbook.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
+                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
                   {isUSA ? selectedEbook.categoryEN : selectedEbook.category}
                 </span>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -167,8 +178,9 @@ const EbookGallery = () => {
                 </p>
                 <Button
                   onClick={() => handleDownload(selectedEbook)}
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold"
+                  className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold rounded-xl"
                   size="lg"
+                  style={{ boxShadow: '0 0 20px hsl(330 85% 60% / 0.3)' }}
                 >
                   <Download className="w-4 h-4 mr-2" />
                   {isUSA ? 'Download E-book' : 'Baixar E-book'}
