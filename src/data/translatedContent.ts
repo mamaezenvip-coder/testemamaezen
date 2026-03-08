@@ -201,28 +201,28 @@ export const translations = {
   },
   babySounds: {
     br: {
-      title: "Sons Calmantes mamaezen",
+      title: "Sons Calmantes Mamãe Zen",
       description: "Áudios premium em alta qualidade para acalmar e fazer o bebê dormir",
       playing: "🎵 Tocando...",
       paused: "⏸️ Pausado",
-      premium: "✨ mamaezen Premium: Áudios em alta qualidade, reprodução contínua sem interrupções. Perfeito para criar um ambiente tranquilo."
+      premium: "✨ Mamãe Zen Premium: Áudios em alta qualidade, reprodução contínua sem interrupções. Perfeito para criar um ambiente tranquilo."
     },
     usa: {
-      title: "Soothing Sounds momzen",
+      title: "Soothing Sounds Mamãe Zen",
       description: "Premium high-quality audio to calm and help baby sleep",
       playing: "🎵 Playing...",
       paused: "⏸️ Paused",
-      premium: "✨ momzen Premium: High-quality audio, continuous playback without interruptions. Perfect for creating a calm environment."
+      premium: "✨ Mamãe Zen Premium: High-quality audio, continuous playback without interruptions. Perfect for creating a calm environment."
     }
   },
   musicPlayer: {
     br: {
       title: "Músicas para Dormir",
-      premium: "✨ mamaezen Premium: Áudios em alta qualidade, reprodução contínua sem interrupções. Perfeito para criar um ambiente tranquilo."
+      premium: "✨ Mamãe Zen Premium: Áudios em alta qualidade, reprodução contínua sem interrupções. Perfeito para criar um ambiente tranquilo."
     },
     usa: {
       title: "Sleep Music",
-      premium: "✨ momzen Premium: High-quality audio, continuous playback without interruptions. Perfect for creating a calm environment."
+      premium: "✨ Mamãe Zen Premium: High-quality audio, continuous playback without interruptions. Perfect for creating a calm environment."
     }
   }
 };

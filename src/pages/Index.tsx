@@ -195,7 +195,7 @@ const Index = () => {
             <div className="flex items-center justify-center gap-2 mb-1">
               <Sparkles className="w-6 h-6 text-primary animate-pulse" />
               <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                {isUSA ? 'Mom Zen' : 'Mamãe Zen'}
+                Mamãe Zen
               </h1>
               <Sparkles className="w-6 h-6 text-secondary animate-pulse" />
             </div>
@@ -308,7 +308,7 @@ const Index = () => {
           {/* Footer */}
           <div className="text-center space-y-2 pt-6 pb-4 border-t border-border">
             <p className="text-xs text-muted-foreground">{isUSA ? '💝 Made with love for moms' : '💝 Feito com amor para mamães'}</p>
-            <p className="text-xs font-semibold text-foreground/80">© {new Date().getFullYear()} {isUSA ? 'Mom Zen Premium' : 'Mamãe Zen Premium'}</p>
+            <p className="text-xs font-semibold text-foreground/80">© {new Date().getFullYear()} Mamãe Zen Premium</p>
             <p className="text-[10px] text-muted-foreground/70">
               {isUSA ? 'All rights reserved to' : 'Todos os direitos reservados a'}{' '}
               <span className="text-primary font-semibold">Hemerson Deckson</span>

@@ -100,7 +100,7 @@ const Login = () => {
           <div>
             <h1 className="text-4xl font-extrabold tracking-tight">
               <span className="bg-gradient-to-r from-primary via-[hsl(300,80%,70%)] to-secondary bg-clip-text text-transparent">
-                {isUSA ? 'Welcome to Mom Zen' : 'Bem-vinda ao Mamãe Zen'}
+                {isUSA ? 'Welcome to Mamãe Zen' : 'Bem-vinda ao Mamãe Zen'}
               </span>
             </h1>
             <p className="text-muted-foreground text-sm mt-2 max-w-xs mx-auto leading-relaxed">

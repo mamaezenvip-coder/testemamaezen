@@ -113,7 +113,7 @@ const MusicPlayer = () => {
   } = useYouTubeEmbed();
 
   const texts = {
-    title: isUSA ? 'Mom Zen Music' : 'Mamãe Zen Music',
+    title: 'Mamãe Zen Music',
     subtitle: isUSA ? 'Premium Player' : 'Player Premium',
     search: isUSA ? 'Search music or artist...' : 'Buscar música ou artista...',
     library: isUSA ? 'Library' : 'Biblioteca',
