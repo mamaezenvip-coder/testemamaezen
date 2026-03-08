@@ -48,7 +48,7 @@ const ebooks: Ebook[] = [
     titleEN: 'The Ash Diadem',
     description: 'Uma história envolvente de fantasia e superação para momentos de relaxamento.',
     descriptionEN: 'An engaging fantasy story of overcoming for relaxation moments.',
-    cover: cover3,
+    cover: defaultCover,
     file: '/ebooks/O-Diadema-de-Cinzas.pdf',
     category: 'Literatura',
     categoryEN: 'Literature',
