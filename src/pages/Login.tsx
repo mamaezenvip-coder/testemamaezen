@@ -99,11 +99,13 @@ const Login = () => {
           <div>
             <h1 className="text-4xl font-extrabold tracking-tight">
               <span className="bg-gradient-to-r from-primary via-[hsl(300,80%,70%)] to-secondary bg-clip-text text-transparent">
-                {isUSA ? 'Mom Zen' : 'Mamãe Zen'}
+                {isUSA ? 'Welcome to Mom Zen' : 'Bem-vinda ao Mamãe Zen'}
               </span>
             </h1>
-            <p className="text-muted-foreground text-sm mt-1.5">
-              {isUSA ? 'The complete app for modern moms' : 'O app completo para mamães modernas'}
+            <p className="text-muted-foreground text-sm mt-2 max-w-xs mx-auto leading-relaxed">
+              {isUSA 
+                ? 'Protect your baby and feel prepared for any situation.' 
+                : 'Proteja o seu bebê e sinta-se preparada para qualquer situação.'}
             </p>
           </div>
 
