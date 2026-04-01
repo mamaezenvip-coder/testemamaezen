@@ -34,6 +34,7 @@ const LOCKED_TABS = ['sounds', 'emergency', 'pregnancy'];
 const Index = () => {
   const { isUSA } = useCountry();
   const { user, license, signOut } = useAuth();
+  const { isAdmin } = useAdmin();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [userName, setUserName] = useState<string>('');
   const [tempName, setTempName] = useState<string>('');
