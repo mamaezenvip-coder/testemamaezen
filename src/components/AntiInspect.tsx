@@ -74,7 +74,7 @@ const AntiInspect = () => {
     };
 
     // Detectar console aberto - apenas em desktop
-    let detectConsole: NodeJS.Timeout | null = null;
+    let detectConsole: ReturnType<typeof setInterval> | null = null;
     if (!isMobile) {
       detectConsole = setInterval(detectDevTools, 2000);
     }
