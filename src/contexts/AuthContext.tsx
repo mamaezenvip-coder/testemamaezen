@@ -58,9 +58,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const activateKey = async (key: string): Promise<{ success: boolean; message: string }> => {
+    const { allowed, retryAfterMs } = checkRateLimit('activate-key');
+    if (!allowed) {
+      const seconds = Math.ceil(retryAfterMs / 1000);
+      return { success: false, message: `Too many attempts. Wait ${seconds}s.` };
+    }
+
+    const sanitizedKey = key.trim().replace(/[^a-zA-Z0-9\-_]/g, '').slice(0, 50);
+    if (!sanitizedKey) return { success: false, message: 'Invalid key format' };
+
     try {
       const { data, error } = await supabase.rpc('activate_license_key', {
-        p_key: key,
+        p_key: sanitizedKey,
         p_device_id: navigator.userAgent.slice(0, 100),
       });
 
